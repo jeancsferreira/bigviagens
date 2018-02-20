@@ -1,0 +1,58 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+<title>BigViagens</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<script src="jquery.responsiveiframe.js"></script>
+<script type='text/javascript' src='jquery-1.6.1.min.js'></script>
+<script>
+function adjustIframes()
+{
+  $('iframe').each(function(){
+    var
+    $this       = $(this),
+    proportion  = $this.data( 'proportion' ),
+    w           = $this.attr('width'),
+    actual_w    = $this.width();
+    
+    if ( ! proportion )
+    {
+        proportion = $this.attr('height') / w;
+        $this.data( 'proportion', proportion );
+    }
+  
+    if ( actual_w != w )
+    {
+        $this.css( 'height', Math.round( actual_w * proportion ) + 'px' );
+    }
+  });
+}
+$(window).on('resize load',adjustIframes);
+
+</script>
+
+<style type="text/css">
+<!--
+iframe {
+  max-width: 100%;
+}
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript">
+
+var width = screen.width;
+var height = screen.height - 20;
+	
+window.document.write("<iframe src=http://www.bigviagens.com.br marginwidth=0 marginheight=0 scrolling=yes name=app border=0 frameborder=0 width=" + width + " height=" + height  + "></iframe>");
+	
+</script>
+
+</body>
+
+</html>
